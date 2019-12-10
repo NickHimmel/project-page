@@ -5,8 +5,7 @@ class Main extends Component {
 
   handleClick = () => {
     const cid = "N00041162";
-    const token = "354e1dd0612b41cbe30b85c0b8323914";
-
+    const token = process.env.REACT_APP_OPEN_SECRETS_API_KEY;
     const url = `https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`
 
     fetch(url)
@@ -20,6 +19,7 @@ class Main extends Component {
   render() {
     return (
       <div>
+        <h2>Now with a token</h2>
         <p>This is an app For testing</p>
         <Button onClick={this.handleClick}/>
       </div>

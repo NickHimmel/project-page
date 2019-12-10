@@ -4,7 +4,17 @@ import Button from './Button.js'
 class Main extends Component {
 
   handleClick = () => {
-    console.log('Clicked!');
+    const cid = "N00041162";
+    const token = "354e1dd0612b41cbe30b85c0b8323914";
+
+    const url = `https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`
+
+    fetch(url)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(error => {
+        console.log('request failed', error);
+    })
   }
 
   render() {
